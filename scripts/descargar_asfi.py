@@ -62,4 +62,4 @@ def descargar_lista(items, limite=30):
 if __name__ == "__main__":
     circulares, otros = extraer_enlaces(PDF_MAESTRO)
     # Descargar un lote de 25 circulares normativas clave
-    descargar_lista(circulares, limite=25)
+    descargar_lista(circulares, limite=3)
