@@ -1,0 +1,12 @@
+# 10 URLs de prueba para el benchmark (Wikipedia ES, paginas estaticas y publicas).
+# Verificar que el tamano sea similar; si alguna difiere mucho, reemplazarla.
+https://es.wikipedia.org/wiki/Impuesto_al_valor_agregado
+https://es.wikipedia.org/wiki/Impuesto_sobre_la_renta
+https://es.wikipedia.org/wiki/Banco_central
+https://es.wikipedia.org/wiki/Banco_comercial
+https://es.wikipedia.org/wiki/Reserva_fraccionaria
+https://es.wikipedia.org/wiki/Pol%C3%ADtica_fiscal
+https://es.wikipedia.org/wiki/Pol%C3%ADtica_monetaria
+https://es.wikipedia.org/wiki/Deuda_p%C3%BAblica
+https://es.wikipedia.org/wiki/Tasa_de_inter%C3%A9s
+https://es.wikipedia.org/wiki/Inflaci%C3%B3n

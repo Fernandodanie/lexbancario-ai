@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: .
+    image: lexbancario-ai:latest
+    container_name: lexbancario_backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    networks:
+      - rag_net
+
+  frontend:
+    image: lexbancario-ai:latest
+    container_name: lexbancario_frontend
+    command: streamlit run app_streamlit.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    networks:
+      - rag_net
+
+networks:
+  rag_net:
+    driver: bridge

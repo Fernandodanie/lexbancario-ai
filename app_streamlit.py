@@ -8,7 +8,8 @@ st.set_page_config(
     layout="wide"
 )
 
-API_URL = "http://127.0.0.1:8000/api/consultar"
+import os
+API_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000") + "/api/consultar"
 
 # Barra lateral con controles
 with st.sidebar:
@@ -17,6 +18,9 @@ with st.sidebar:
     st.markdown("Sistema RAG para resoluciones **ASFI** y normativa de **Banco Unión**.")
     st.divider()
     
+    st.subheader("Colección")
+    coleccion_id = st.text_input("coleccion_id (namespace):", value="normativa_bancaria", max_chars=50)
+
     st.subheader("Configuración de Recuperación")
     top_k = st.slider("Documentos a recuperar (top_k):", min_value=1, max_value=8, value=4)
     threshold = st.slider("Umbral mínimo de similitud:", min_value=0.20, max_value=0.80, value=0.35, step=0.05)
@@ -57,6 +61,7 @@ if prompt := st.chat_input("Escribe tu consulta legal o normativa (ej. facultade
         with st.spinner("Consultando base vectorial y generando fundamentación jurídica..."):
             payload = {
                 "pregunta": prompt,
+                "coleccion_id": coleccion_id,
                 "top_k": top_k,
                 "match_threshold": threshold
             }
