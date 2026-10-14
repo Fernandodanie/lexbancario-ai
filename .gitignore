@@ -21,3 +21,5 @@ documentos_u/
 *.log
 .DS_Store
 .vscode/
+*.zip
+!evidencias/*.png
